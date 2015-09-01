@@ -1,16 +1,16 @@
-# String-to-object
+# path-to-object
 Converts string such ```'a.b.c'``` to object ```{a: {b: {c: {}}}}```
 
 # Installation
 
 ``
-npm install string-to-object
+npm install path-to-object
 ``
 
 # Example usage
 
 ```
-var stringToObject = require('string-to-object');
+var pathToObject = require('path-to-object');
 
-stringToObject('a.b.c.d'); // {a: {b: {c: {d: {}}}}
+pathToObject('a.b.c.d'); // {a: {b: {c: {d: {}}}}
 ```
