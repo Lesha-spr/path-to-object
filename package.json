@@ -1,6 +1,6 @@
 {
   "name": "path-to-object",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "simple helper to convert strings to object",
   "main": "index.js",
   "scripts": {
