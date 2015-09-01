@@ -13,10 +13,7 @@ npm install path-to-object
 var pathToObject = require('path-to-object');
 
 pathToObject('a.b.c.d'); // {a: {b: {c: {d: {}}}}
-```
 
-# Example with value passed
-
-```
-pathToObject('a.b.c', true); // {a: {b: {c: true}}}
+// Passing second param will set last field's value
+pathToObject('a.b.c', true); // {a: {b: {c: true}}} // {a: {b: {c: true}}}
 ```
