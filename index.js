@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(path) {
+module.exports = function(path, value) {
     var depths = path.split('.');
     var obj = {};
 
@@ -12,6 +12,8 @@ module.exports = function(path) {
 
         if (arr.length) {
             toSubObject(arr, sub[shifted]);
+        } else {
+            sub[shifted] = value || {};
         }
     }
 
