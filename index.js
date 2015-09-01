@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function(str) {
-    var depths = str.split('.');
+module.exports = function(path) {
+    var depths = path.split('.');
     var obj = {};
 
     toSubObject(depths, obj);

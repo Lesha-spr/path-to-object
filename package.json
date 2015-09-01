@@ -1,5 +1,5 @@
 {
-  "name": "string-to-obj",
+  "name": "path-to-object",
   "version": "1.0.0",
   "description": "simple helper to convert strings to object",
   "main": "index.js",
