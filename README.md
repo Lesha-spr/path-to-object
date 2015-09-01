@@ -14,3 +14,9 @@ var pathToObject = require('path-to-object');
 
 pathToObject('a.b.c.d'); // {a: {b: {c: {d: {}}}}
 ```
+
+# Example with value passed
+
+```
+pathToObject('a.b.c', true); // {a: {b: {c: true}}}
+```
