@@ -1,17 +1,17 @@
 'use strict';
 
-module.exports = function(path, value) {
+var pathToObject = function(path, value) {
     var depths = path.split('.');
     var obj = {};
 
     toSubObject(depths, obj);
 
-    function toSubObject(arr, sub) {
-        var shifted = arr.shift();
+    function toSubObject(sub) {
+        var shifted = depths.shift();
         sub[shifted] = {};
 
-        if (arr.length) {
-            toSubObject(arr, sub[shifted]);
+        if (depths.length) {
+            toSubObject(sub[shifted]);
         } else {
             sub[shifted] = value || {};
         }
@@ -19,3 +19,28 @@ module.exports = function(path, value) {
 
     return obj;
 };
+
+pathToObject.value = function(obj, path, value) {
+    var depths = path.split('.');
+    var val = undefined;
+
+    setDeep(obj);
+
+    function setDeep(subObject) {
+        var shifted = depths.shift();
+
+        if (depths.length) {
+            setDeep(subObject[shifted]);
+        } else {
+            if (value) {
+                subObject[shifted] = value;
+            } else {
+                val = subObject[shifted];
+            }
+        }
+    }
+
+    return val || obj;
+};
+
+module.exports = pathToObject;
