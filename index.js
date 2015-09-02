@@ -4,7 +4,7 @@ var pathToObject = function(path, value) {
     var depths = path.split('.');
     var obj = {};
 
-    toSubObject(depths, obj);
+    toSubObject(obj);
 
     function toSubObject(sub) {
         var shifted = depths.shift();
@@ -22,7 +22,6 @@ var pathToObject = function(path, value) {
 
 pathToObject.value = function(obj, path, value) {
     var depths = path.split('.');
-    var val = undefined;
 
     setDeep(obj);
 
@@ -40,7 +39,6 @@ pathToObject.value = function(obj, path, value) {
         }
     }
 
-    return val || obj;
 };
 
 module.exports = pathToObject;
