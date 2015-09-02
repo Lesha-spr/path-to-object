@@ -22,6 +22,7 @@ var pathToObject = function(path, value) {
 
 pathToObject.value = function(obj, path, value) {
     var depths = path.split('.');
+    var val;
 
     setDeep(obj);
 
@@ -31,7 +32,7 @@ pathToObject.value = function(obj, path, value) {
         if (depths.length) {
             setDeep(subObject[shifted]);
         } else {
-            if (value) {
+            if (value !== undefined) {
                 subObject[shifted] = value;
             } else {
                 val = subObject[shifted];
@@ -39,6 +40,7 @@ pathToObject.value = function(obj, path, value) {
         }
     }
 
+    return val !== undefined ? val : obj;
 };
 
 module.exports = pathToObject;
